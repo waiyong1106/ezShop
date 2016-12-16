@@ -48,12 +48,15 @@ public class bookJDBC {
     }
     
     public boolean storeBooking(Booking b) throws SQLException{
-              String sql2 = "insert into booking(bookID,memID,scheID,seatType) values(?,?,?,?)";
+              String sql2 = "insert into booking(bookID,memID,scheID,seatType,seatBook,price) values(?,?,?,?,?,?)";
               stmt2 = con.prepareStatement(sql2);
               stmt2.setString(1,b.getBookID());
               stmt2.setString(2,b.getMemID());
               stmt2.setString(3,b.getScheID());
               stmt2.setString(4,b.getSeatType());
+	      stmt2.setInt(5,b.getSeatBook());
+              stmt2.setDouble(6,b.getPrice());
+
 
                             
               int result= stmt2.executeUpdate();
