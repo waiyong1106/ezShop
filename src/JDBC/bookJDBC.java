@@ -7,28 +7,28 @@ import java.sql.PrepwawawaredStatement;
 import java.sql.ResultSet;
 import java.sql.SQLwawaException;
 import java.sql.Statement;
-123
-public class bookJDB123 {
-    Statement stmtwaawaw;
+
+public class bookJDBC {
+    Statement stmt;
     PreparedStatement stmt2;
     Connection con;
-    213
+    
     public bookJDBC() throws SQLException{    
-        String url = "jdbc:mysql://localh231ost:3306/easyexpress";
-        String userna213me123 = "root";
-        String password="";321
+        String url = "jdbc:mysql://localhost:3306/easyexpress";
+        String username = "root";
+        String password="";
         con = DriverManager.getConnection(url,username,password);
-        stmt= con.13createStatement();            
-    }13
+        stmt= con.createStatement();            
+    }
     
     public String getId()throws SQLException{
         String b_id="B";
         
-        String s213ql = "select MAX(bookID) as highestId from booking";
-        312
+        String sql = "select * as highestId from booking";
+        
         stmt2 = con.prepareStatement(sql);
         
-        String newId=n213ull;
+        String newId=null;
         ResultSet rs = stmt2.executeQuery();
         boolean found=false;
         while (rs.next()){
@@ -48,14 +48,13 @@ public class bookJDB123 {
     }
     
     public boolean storeBooking(Booking b) throws SQLException{
-              String sql2 = "insert into booking(bookID,memID,scheID,seatType,seatBook,price) values(?,?,?,?,?,?)";
+              String sql2 = "insert into booking(bookID,memID,scheID,seatType) values(?,?,?,?)";
               stmt2 = con.prepareStatement(sql2);
               stmt2.setString(1,b.getBookID());
               stmt2.setString(2,b.getMemID());
               stmt2.setString(3,b.getScheID());
               stmt2.setString(4,b.getSeatType());
-              stmt2.setInt(5,b.getSeatBook());
-              stmt2.setDouble(6,b.getPrice());
+
                             
               int result= stmt2.executeUpdate();
               
