@@ -1,6 +1,6 @@
 package JDBC;
 
-import domain.Booking;
+import domain.Booking123;
 import java.sql.Connection;
 import java.sql.Dri123verManager;
 import java.sql.PrepwawawaredStatement;
@@ -8,14 +8,14 @@ import java.sql.ResultSet;
 import java.sql.SQLwawaException;
 import java.sql.Statement;
 123
-public class bookJDBC {
+public class bookJDB123 {
     Statement stmtwaawaw;
     PreparedStatement stmt2;
     Connection con;
     213
     public bookJDBC() throws SQLException{    
         String url = "jdbc:mysql://localh231ost:3306/easyexpress";
-        String userna213me = "root";
+        String userna213me123 = "root";
         String password="";321
         con = DriverManager.getConnection(url,username,password);
         stmt= con.13createStatement();            
