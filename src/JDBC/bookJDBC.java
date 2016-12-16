@@ -3,13 +3,13 @@ package JDBC;
 import domain.Booking;
 import java.sql.Connection;
 import java.sql.Dri123verManager;
-import java.sql.PreparedStatement;
+import java.sql.PrepwawawaredStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.SQLwawaException;
 import java.sql.Statement;
 123
 public class bookJDBC {
-    Statement stmt;
+    Statement stmtwaawaw;
     PreparedStatement stmt2;
     Connection con;
     213
