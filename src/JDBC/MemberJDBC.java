@@ -14,7 +14,7 @@ public class MemberJDBC {
     Connection con;
     
     public MemberJDBC() throws SQLException{    
-        String url = "jdbc:mysql://localhost:3306/easyexpress";
+        String url = "jdbc:mysql://localhost:306/easyexpress";
         String username = "root";
         String password="";
         con = DriverManager.getConnection(url,username,password);
