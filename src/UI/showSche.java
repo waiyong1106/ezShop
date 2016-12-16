@@ -43,7 +43,7 @@ public class showSche extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        cb_scheID = new javax.swing.JComboBox<String>();
+        cb_scheID = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -80,7 +80,7 @@ public class showSche extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Scheduler ID", "Destination", "Departure Date", "Time", "Bus ID", "Driver ID", "Normal Seat", "VIP Seat"
+                "Scheduler ID", "Destination", "Departure Date", "Time", "Bus ID", "Driver's ID", "Normal Seat", "VIP Seat"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
