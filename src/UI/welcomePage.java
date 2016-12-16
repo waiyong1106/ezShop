@@ -37,7 +37,7 @@ public class welcomePage extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/blue-ok-icon.png"))); // NOI18N
-        jButton1.setText("Welcome !");
+        jButton1.setText("Welcome !!!");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
