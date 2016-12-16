@@ -2,33 +2,33 @@ package JDBC;
 
 import domain.Booking;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.Dri123verManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+123
 public class bookJDBC {
     Statement stmt;
     PreparedStatement stmt2;
     Connection con;
-    
+    213
     public bookJDBC() throws SQLException{    
-        String url = "jdbc:mysql://localhost:3306/easyexpress";
-        String username = "root";
-        String password="";
+        String url = "jdbc:mysql://localh231ost:3306/easyexpress";
+        String userna213me = "root";
+        String password="";321
         con = DriverManager.getConnection(url,username,password);
-        stmt= con.createStatement();            
-    }
+        stmt= con.13createStatement();            
+    }13
     
     public String getId()throws SQLException{
         String b_id="B";
         
-        String sql = "select MAX(bookID) as highestId from booking";
-        
+        String s213ql = "select MAX(bookID) as highestId from booking";
+        312
         stmt2 = con.prepareStatement(sql);
         
-        String newId=null;
+        String newId=n213ull;
         ResultSet rs = stmt2.executeQuery();
         boolean found=false;
         while (rs.next()){
