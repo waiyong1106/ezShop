@@ -124,18 +124,20 @@ public class createBus extends javax.swing.JFrame {
         String vipp =tf_vip.getText();
         boolean valid = true;
         String invalid = "";
-        
+        \\validation for normal seat
         for(int a=0;a<seat.length();a++){
             char temp1 = seat.charAt(a);
             if(Character.isLetter(temp1)==true){
-                
+                valid = false;
+                invalid = "Please insert only number for Seat Number";
             }
         }
-        
+         \\validation for vip seat
         for(int i=0;i<vipp.length();i++){
             char temp = vipp.charAt(i);
             if(Character.isLetter(temp)==true){
-                
+                valid = false;
+                invalid = "Please insert only number for Seat Number";
             }
         }
         
