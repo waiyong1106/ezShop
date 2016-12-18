@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+//Added request card pin for more security
 public class payJDBC {
     Statement stmt;
     PreparedStatement stmt2;
