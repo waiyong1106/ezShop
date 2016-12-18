@@ -116,6 +116,7 @@ public class recover extends javax.swing.JFrame {
         String username = tf_username.getText();
         String hp = tf_hp.getText();
         
+	//validate handphone number if member
         boolean valid = true;
         String invalid = "";
         //Handphone validation
@@ -131,6 +132,7 @@ public class recover extends javax.swing.JFrame {
                 invalid = "Please insert proper handphone number";
             }
         }
+	//if valid
         if(valid){
         try{
             memberTier mt = new memberTier();
@@ -157,9 +159,10 @@ public class recover extends javax.swing.JFrame {
         String username = tf_username.getText();
         String hp = tf_hp.getText();
         
+
         boolean valid = true;
         String invalid = "";
-        //Handphone validation
+        //Handphone validation if staff
         String handphone=tf_hp.getText();
         if(handphone.length()!=10){
             valid = false;
@@ -172,6 +175,7 @@ public class recover extends javax.swing.JFrame {
                 invalid = "Please insert proper handphone number";
             }
         }
+	//if valid
         if(valid){
         try{
             staffTier st = new staffTier();
