@@ -185,25 +185,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_memberActionPerformed
 
     private void staffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffActionPerformed
-        String username = tf_username.getText();
-        String password = tf_pass.getText();
         
-        try{
-            staffTier st = new staffTier();
-            
-            String s_name = st.stafflog(username,password);
-                if (s_name == null){
-                    JOptionPane.showMessageDialog(this, "Invalid Username or Password");
-                } else {
-                    JOptionPane.showMessageDialog(this, "Login Success\n\nStaff Name : "+s_name);
-                    dispose();
-                    showStaff ss = new showStaff();
-                    ss.setVisible(true);
-                }
-                
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage());
-            }
     }//GEN-LAST:event_staffActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
