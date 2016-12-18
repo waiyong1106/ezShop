@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package UI;
 
 import javax.swing.JOptionPane;
@@ -10,15 +5,8 @@ import domain.Member;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 
-/**
- *
- * @author han
- */
 public class login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form login
-     */
     public login() {
         initComponents();
        
