@@ -2,10 +2,7 @@ package UI;
 
 import javax.swing.JOptionPane;
 import domain.Scheduler;
-/**
- *
- * @author han
- */
+
 public class payUI extends javax.swing.JFrame {
 
     /**
