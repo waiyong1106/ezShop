@@ -196,10 +196,12 @@ public class DeleteDriver extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String id = (String) cb_driverID.getSelectedItem();
+       //Get Textfield driver ID
+	String id = (String) cb_driverID.getSelectedItem();
                 try{
                 driverTier dt = new driverTier();
                 boolean success = dt.deleteDriver(id);
+		//If succcess
                 if(success){
                     JOptionPane.showMessageDialog(this,"Record had been deleted");
                     dispose();
