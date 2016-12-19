@@ -117,7 +117,6 @@ public class driverJDBC {
               stmt2.setString(1, d.getDriverID());
               ResultSet rs = stmt2.executeQuery();
               while(rs.next()){
-                  //p.setId(rs.getString("id"));
                   d.setDriverName(rs.getString("driverName"));
                   d.setHp(rs.getInt("hp"));
                   d.setAddress(rs.getString("Address"));
