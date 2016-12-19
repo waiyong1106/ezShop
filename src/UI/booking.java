@@ -307,7 +307,19 @@ public class booking extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String memID = tf_memID.getText();
+        String scheID = tf_scheID.getText();
+        String seatType ;
+       
+              
+        int seatBook = seatno.getSelectedIndex()+1;
+        double price = Double.parseDouble(totalp.getText());
         
+                       
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+
 
 
         
