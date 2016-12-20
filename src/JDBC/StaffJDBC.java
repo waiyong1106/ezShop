@@ -52,7 +52,7 @@ public class StaffJDBC {
         while(rs.next()){
             s.setPassword(rs.getString("password"));
         }
-        return s;
+        return s;   //recovery successfully
     }
     
     public String getId()throws SQLException{
