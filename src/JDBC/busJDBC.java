@@ -99,7 +99,7 @@ public class busJDBC {
         if(result2>0)
             return true;
         else
-            return false;
+            return false; //confirmed deleteed
     }
     
     public boolean updateBus(Bus b) throws SQLException{
