@@ -113,7 +113,7 @@ public class busJDBC {
         if(result2>0)
             return true;
         else
-            return false; //updated the bus successfully
+            return false; //success
     }
     
 }
