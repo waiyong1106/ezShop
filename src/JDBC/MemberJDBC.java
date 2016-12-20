@@ -91,7 +91,7 @@ public class MemberJDBC {
         stmt2 = con.prepareStatement(sql4);
         stmt2.setString(1,m.getUsername());
         stmt2.setString(2,m.getHp());
-        
+        //compare the usersname and password success
         ResultSet rs = stmt2.executeQuery();
         while(rs.next()){
             m.setMemID(rs.getString("memID"));
