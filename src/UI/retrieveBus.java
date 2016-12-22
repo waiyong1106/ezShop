@@ -90,7 +90,7 @@ public class retrieveBus extends javax.swing.JFrame {
         jButton2.setText("Confirm");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                 jButton2ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton2);
@@ -113,7 +113,7 @@ public class retrieveBus extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(70, 80, 45, 16);
 
-        jLabel3.setText("Bus Name :");
+        jLabel3.setText("Bus Name : ");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(50, 110, 66, 16);
         getContentPane().add(jLabel6);
@@ -137,9 +137,9 @@ public class retrieveBus extends javax.swing.JFrame {
             if(b==null)
             JOptionPane.showMessageDialog(null, "Fail to retrieve Bus record");
             else{
-                tf_busName.setText(b.getBusName());
-                tf_normal.setText(b.getSeat()+"");
-                tf_vip.setText(b.getVip()+"");
+                 tf_busName.setText(b.getBusName());
+                 tf_normal.setText(b.getSeat()+"");
+                 tf_vip.setText(b.getVip()+"");
             }
 
         }catch(Exception ex){
@@ -148,12 +148,9 @@ public class retrieveBus extends javax.swing.JFrame {
     }//GEN-LAST:event_cb_busIDActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-
-
-
-
-
+        dispose();
+        busSelect bs = new busSelect();
+        bs.setVisible(true);
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
