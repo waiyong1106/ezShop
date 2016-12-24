@@ -1,11 +1,11 @@
 package JDBC;
 
-import domain.Booking123;
+import domain.Booking;
 import java.sql.Connection;
-import java.sql.Dri123verManager;
-import java.sql.PrepwawawaredStatement;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLwawaException;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class bookJDBC {
