@@ -167,13 +167,48 @@ public class cancel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+      String payID = tf_payID.getText();
+        String bookID = tf_bookID.getText();
+        String price = tf_price.getText();
+        String scheID = tf_scheID.getText();
+        int seatBook = Integer.parseInt(tf_sbook.getText());
+        String seatType = tf_stype.getText();
+        String memID = tf_memID.getText();
+        double rprice = (Double.parseDouble(price))/2;
         
-        
-        
-        
-        
-        
+        try{
+            refundTier rt = new refundTier();
+            String refundID = rt.storeRefund(payID,memID,rprice);
+                if (refundID==null){
+                    JOptionPane.showMessageDialog(this, "Cannot found Payment details.");
+                } else {
+                    bookTier bt = new bookTier();
+                    boolean success2 = bt.deleteBook(bookID);
+                    if(!success2)
+                        JOptionPane.showMessageDialog(this, "Fail to cancel booking");
+                    else{
+                        SeatTier st = new SeatTier();
+                        boolean success3 = st.addSeat(scheID,seatType,seatBook);
+                        if(!success3)
+                            JOptionPane.showMessageDialog(this, "Fail to add seat availability.");
+                        else{
+                            payTier pt = new payTier();
+                            boolean success4 = pt.cancelPay(refundID,payID);
+                            if(!success4)
+                                JOptionPane.showMessageDialog(this, "Fail to update payment.");
+                            else{
+                            JOptionPane.showMessageDialog(this, "Cancel Success !!\nRefund can be claim from our center.");
+                            dispose();
+                            refund r = new refund(memID);
+                            r.setVisible(true);
+                            }
+                        }
+                    }
+                }
+                
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
