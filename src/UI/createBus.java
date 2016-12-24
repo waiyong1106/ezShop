@@ -119,11 +119,49 @@ public class createBus extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_normalActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     
+     String busname=tf_busName.getText();
+        String seat = tf_normal.getText();
+        String vipp =tf_vip.getText();
+        boolean valid = true;
+        String invalid = "";
+        //validation for normal seat
+        for(int a=0;a<seat.length();a++){
+            char temp1 = seat.charAt(a);
+            if(Character.isLetter(temp1)==true){
+                valid = false;
+                invalid = "Please insert only number for Seat Number";
+            }
+        }
+         //validation for vip seat
+        for(int i=0;i<vipp.length();i++){
+            char temp = vipp.charAt(i);
+            if(Character.isLetter(temp)==true){
+                valid = false;
+                invalid = "Please insert only number for Seat Number";
+            }
+        }
         
-        
-        
-        
+        if(valid){
+        try{
+        int seatt=Integer.parseInt(seat);
+        int vip=Integer.parseInt(vipp);
+            busTier bt = new busTier();
+            String id=bt.createBus(busname, seatt,vip);
+            if(id == null){
+                JOptionPane.showMessageDialog(this,"Error");
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"Record Bus'ID "+id+" Insert Successfully");
+                dispose();
+                busSelect bs = new busSelect();
+                bs.setVisible(true);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(this,ex.getMessage());
+        }
+        }
+        else
+            JOptionPane.showMessageDialog(this,invalid);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
