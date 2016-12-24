@@ -12,15 +12,7 @@ import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
+
 
 /**
  *
@@ -122,72 +114,20 @@ public class report extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       try{
-           Class.forName("com.mysql.jdbc.Driver");
-           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/easyexpress","root","");
-           
-           String reportPath = "src/reportTemplates/reportEx.jrxml";
-           
-           JasperReport jr = JasperCompileManager.compileReport(reportPath);
-           JasperPrint jp = JasperFillManager.fillReport(jr,null,con);
-           JasperViewer.viewReport(jp,false);
-           con.close();
-           
-       }catch(Exception ex){
-           System.out.println(ex.getMessage());
-       }    
+        
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{
-           Class.forName("com.mysql.jdbc.Driver");
-           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/easyexpress","root","");
-           
-           String reportPath = "src/reportTemplates/reportTrans.jrxml";
-           
-           JasperReport jr = JasperCompileManager.compileReport(reportPath);
-           JasperPrint jp = JasperFillManager.fillReport(jr,null,con);
-           JasperViewer.viewReport(jp,false);
-           con.close();
-           
-       }catch(Exception ex){
-           System.out.println(ex.getMessage());
-       }    
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try{
-           Class.forName("com.mysql.jdbc.Driver");
-           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/easyexpress","root","");
-           
-           String reportPath = "src/reportTemplates/reportPay.jrxml";
-           
-           JasperReport jr = JasperCompileManager.compileReport(reportPath);
-           JasperPrint jp = JasperFillManager.fillReport(jr,null,con);
-           JasperViewer.viewReport(jp,false);
-           con.close();
-           
-       }catch(Exception ex){
-           System.out.println(ex.getMessage());
-       }  
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        try{
-           Class.forName("com.mysql.jdbc.Driver");
-           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/easyexpress","root","");
-           
-           String reportPath = "src/reportTemplates/reportSche.jrxml";
-           
-           JasperReport jr = JasperCompileManager.compileReport(reportPath);
-           JasperPrint jp = JasperFillManager.fillReport(jr,null,con);
-           JasperViewer.viewReport(jp,false);
-           con.close();
-           
-       }catch(Exception ex){
-           System.out.println(ex.getMessage());
-       }  
+     
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
