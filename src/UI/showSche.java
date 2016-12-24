@@ -154,49 +154,14 @@ public class showSche extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-        try{
-            scheTier st = new scheTier();
-            ArrayList<Scheduler> schearray = st.retrieveSche();
-            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-            DefaultComboBoxModel model2 = (DefaultComboBoxModel)cb_scheID.getModel();
-            model.setRowCount(0);
-            model2.removeAllElements();
-                       
-                for(int i=0; i<schearray.size();i++){
-                Scheduler s = schearray.get(i);
-                String c1 = s.getScheID();
-                String c2 = s.getDest();
-                
-                String c3 = s.getScheDate();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                Calendar cal = Calendar.getInstance();
-                String today = sdf.format(cal.getTime());
-                Date tod = sdf.parse(today);
-                Date sched = sdf.parse(c3);
-                
-                int t = Integer.parseInt(s.getDeparture());
-                String c4 = String.format("%010d",t);
-                String c5 = s.getBusID();
-                String c6 = s.getDriverID();
-                String c7 = s.getNormal();
-                String c8 = s.getVip();
-                
-                if(sched.equals(tod)){
-                    Object [] row = {c1,c2,c3,c4,c5,c6,c7,c8};
-                    model.addRow(row);
-                    model2.addElement(c1);
-                }else if(sched.after(tod)){
-                    Object [] row = {c1,c2,c3,c4,c5,c6,c7,c8};
-                    model.addRow(row);
-                    model2.addElement(c1);
-                }
-                
-                
-            }
-
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Fail to retrieve record");   
-        }
+        
+        
+        
+        
+        
+        
+        
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
