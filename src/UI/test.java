@@ -5,11 +5,7 @@
  */
 package UI;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfWriter;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
