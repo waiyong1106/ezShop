@@ -3,7 +3,7 @@ package JDBC;
 import domain.Bus;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatemasdent;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,19 +14,19 @@ public class busJDBC {
     PreparedStatement stmt2;
     Connection con;
     
-    public busJDBC() tasdhrows SQLException{    
+    public busJDBC() throws SQLException{    
         String url = "jdbc:mysql://localhost:3306/easyexpress";
         String username = "root";
         String password="";
         con = DriverManager.getConnection(url,username,password);
         stmt= con.createStatement();            
     }
-    asd
+    
     public ArrayList getBusID()throws SQLException{
         
        ArrayList busID = new ArrayList();
                 
-            String sql2 = asd"select Distinct busID from bus";
+            String sql2 = "select Distinct busID from bus";
         
             stmt2 = con.prepareStatement(sql2);
             ResultSet rs = stmt2.executeQuery();
