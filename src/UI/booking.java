@@ -307,33 +307,13 @@ public class booking extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String memID = tf_memID.getText();
-        String scheID = tf_scheID.getText();
-        String seatType ;
-       
-        if(normal.isSelected())
-            seatType = "Normal";
-        else
-            seatType = "VIP";
         
-        int seatBook = seatno.getSelectedIndex()+1;
-        double price = Double.parseDouble(totalp.getText());
         
-        try{
-            bookTier bt = new bookTier();
-            String bookId = bt.newbookID(memID,scheID,seatType,seatBook,price);
-                if (bookId==null){
-                    JOptionPane.showMessageDialog(this, "Fail to auto generate Book ID");
-                } else {
-                    JOptionPane.showMessageDialog(this, "Tranfer to Payment Page");
-                    dispose();
-                    payUI pay = new payUI(bookId,memID,scheID,seatType,seatBook,price);
-                    pay.setVisible(true);
-                }
-                
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage());
-            }
+        
+        
+        
+        
+        
    
     }//GEN-LAST:event_jButton2ActionPerformed
 
