@@ -231,82 +231,15 @@ public class payUI extends javax.swing.JFrame {
     }//GEN-LAST:event_paymActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String bookID = tf_bookID.getText();
-        String memID = tf_memId.getText();
-        String scheID = scheId.getText();
-        String scheDate = ddate.getText();
-        int scheTime = Integer.parseInt(dtime.getText());
-        String seatType = tseat.getText();
-        int seatBook = Integer.parseInt(noseat.getText());
-        double price = Double.parseDouble(tprice.getText());
-        String payMethod = (String) paym.getSelectedItem();
-        String cardNo;
-        String cardPin;
-        cardNo = ccno.getText();
-        cardPin = cardp.getText();
-        
-        boolean valid = true;
-        String invalid = "";
-        
-        for(int o=0;o<cardNo.length();o++){
-            char temp3 = cardNo.charAt(o);
-            if(Character.isLetter(temp3)){
-                valid = false;
-                invalid = "Invalid Credit Card Format";
-            }
-        }
-        
-        if(cardNo.length()!=16){
-            valid = false;
-            invalid = "Invalid Credit Card Format.\nPlease Enter 16digit";
-        }
-        
-        for(int a=0;a<cardPin.length();a++){
-            char temp = cardPin.charAt(a);
-            if(Character.isLetter(temp)){
-                valid = false;
-                invalid = "Invalid Credit Card Pin.";
-            }
-        }
-        
-        if(cardPin.length()!=3){
-            valid = false;
-            invalid = "Invalid Creadit Card Pin.\nPlease Enter 3 digit only.";
-        }
         
         
-        if(valid){
-        try{
-            bookTier bt = new bookTier();
-            boolean success = bt.storebook(bookID,memID,scheID,seatType,seatBook,price);
-                if(!success){
-                    JOptionPane.showMessageDialog(this, "Error inserting new record to Booking");
-                }
-                payTier pt = new payTier();
-                String payID = pt.storepay(bookID,memID,scheID,scheDate,scheTime,seatType,seatBook,price,payMethod,cardNo,cardPin);
-                if(payID==null){
-                    JOptionPane.showMessageDialog(this, "Error inserting new record to Payment");
-                }
-                else
-                {
-                    SeatTier st = new SeatTier();
-                    boolean success3 = st.minusSeat(scheID,seatType,seatBook);
-                    if(!success3){
-                        JOptionPane.showMessageDialog(this, "Error minus seat avaibility");
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(this, "Payment Success");
-                        dispose();
-                        test t = new test(payID,memID,bookID,scheID,scheDate,scheTime,seatType,seatBook,price);
-                        t.setVisible(true);
-                    }
-                }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage());
-            }
-    }else
-        JOptionPane.showMessageDialog(this,invalid);
+        
+        
+        
+        
+        
+        
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
