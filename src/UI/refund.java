@@ -158,50 +158,12 @@ public class refund extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String memID = tf_memID.getText();
-        try{
-            payTier pt = new payTier();
-            ArrayList<Payment> payarray = pt.retrievePay(memID);
-            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-            DefaultComboBoxModel model2 = (DefaultComboBoxModel)cb_scheID.getModel();
-            model.setRowCount(0);
-            model2.removeAllElements();
-
-            for(int i=0; i<payarray.size();i++){
-                Payment p = payarray.get(i);
-                String c1 = p.getPayID();
-                String c2 = p.getScheID();
-                
-                String c3 = p.getScheDate();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                Calendar cal = Calendar.getInstance();
-                String today = sdf.format(cal.getTime());
-                Date tod = sdf.parse(today);
-                Date sched = sdf.parse(c3);
-                Date rdate = new Date(sched.getTime()-2*24*3600*1000);
-
-                int t = p.getScheTime();
-                String c4 = String.format("%04d",t);
-                String c5 = p.getSeatType();
-                String c6 = p.getSeatBook()+"";
-                String c7 = p.getPrice()+"";
-                
-                if(tod.equals(rdate)){
-                    Object [] row = {c1,c2,c3,c4,c5,c6,c7};
-                    model.addRow(row);
-                    model2.addElement(c1);
-                }else if(tod.before(rdate)){
-                    Object [] row = {c1,c2,c3,c4,c5,c6,c7};
-                    model.addRow(row);
-                    model2.addElement(c1);
-                }
-
-            }
-
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Fail to retrieve record");
-        }
-
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cb_scheIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_scheIDActionPerformed
