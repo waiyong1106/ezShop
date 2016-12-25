@@ -28,8 +28,6 @@ public class ReportSchedule extends javax.swing.JFrame {
     public ReportSchedule() {
         initComponents();
         showSche();
-        
-       
     }
 
     public void showSche(){
@@ -59,10 +57,7 @@ public class ReportSchedule extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Fail to retrieve record");   
         }
     }
-    
-    
-  
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
