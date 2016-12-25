@@ -5,19 +5,66 @@
  */
 package UI;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 /**
  *
  * @author User
  */
 public class ReportSchedule extends javax.swing.JFrame {
-
+    String host = "jdbc:mysql://localhost:3306/easyexpress";
+    String username = "root";
+    String password = "";
+    Statement stmt=null;
+    
+    public void connection()
+ {
+    try
+    {
+    Class.forName("com.mysql.jdbc.scheJDBC");
+    }catch(Exception e)
+            {
+            System.out.println(e);
+            }
+ }
+    public void connection1(){
+        try{
+        connection();
+        Connection connect = DriverManager.getConnection(host,username,password);
+        stmt = connect.createStatement();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    
+    }
+    
+    public void fetch_Data(){
+    try{
+        connection1();
+        String sql = "select * from scheduler";
+        ResultSet rs=stmt.executeQuery(sql);
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+    }catch(Exception e){
+    JOptionPane.showMessageDialog(null, e);
+    }
+    }
+    
+    
     /**
      * Creates new form ReportSchedule
      */
     public ReportSchedule() {
         initComponents();
+        fetch_Data();
+       
     }
 
+  
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,47 +73,44 @@ public class ReportSchedule extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        BusExpressPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("BusExpressPU").createEntityManager();
-        schedulerQuery = java.beans.Beans.isDesignTime() ? null : BusExpressPUEntityManager.createQuery("SELECT s FROM Scheduler s");
-        schedulerList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : schedulerQuery.getResultList();
-        schedulerQuery1 = java.beans.Beans.isDesignTime() ? null : BusExpressPUEntityManager.createQuery("SELECT s FROM Scheduler s");
-        schedulerList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : schedulerQuery1.getResultList();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Schedule Report");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Scheduler ID", "Schedule Date", "Destination", "Departure", "Bus ID", "Driver ID"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Schedule Report");
-
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, schedulerList1, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${scheID}"));
-        columnBinding.setColumnName("Schedule ID");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${scheDate}"));
-        columnBinding.setColumnName("Schedule Date");
-        columnBinding.setColumnClass(java.util.Date.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${dest}"));
-        columnBinding.setColumnName("Destination");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${departure}"));
-        columnBinding.setColumnName("Departure");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${busID}"));
-        columnBinding.setColumnName("Bus ID");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${driverID}"));
-        columnBinding.setColumnName("Driver ID");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
-        jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,8 +127,8 @@ public class ReportSchedule extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(248, 248, 248))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(249, 249, 249))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,14 +141,17 @@ public class ReportSchedule extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        bindingGroup.bind();
-
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+      
+    }//GEN-LAST:event_formWindowOpened
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            dispose();
-            new report().setVisible(true);
+        dispose();
+        new report().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -144,15 +191,9 @@ public class ReportSchedule extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.persistence.EntityManager BusExpressPUEntityManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private java.util.List<UI.Scheduler> schedulerList;
-    private java.util.List<UI.Scheduler> schedulerList1;
-    private javax.persistence.Query schedulerQuery;
-    private javax.persistence.Query schedulerQuery1;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
