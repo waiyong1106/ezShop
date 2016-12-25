@@ -47,6 +47,17 @@ public class payTier {
         return payarray;
     }
     
+    public ArrayList<Payment> retrievePay2() throws Exception{
+        ArrayList<Payment> payarray2  = new ArrayList<Payment>();
+        
+        try{
+            payarray2 = jdbc.retrievePay2();
+         }catch(Exception ex){
+             throw new Exception("No Record");
+         } 
+        return payarray2;
+    }
+    
     public Payment retrievebyID(Payment p)throws Exception{
         
         p = jdbc.retrievebyID(p);
@@ -62,5 +73,7 @@ public class payTier {
         else
             return false;
     }
+
+    
     
 }
