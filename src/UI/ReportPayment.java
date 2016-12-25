@@ -190,6 +190,7 @@ public class ReportPayment extends javax.swing.JFrame {
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
