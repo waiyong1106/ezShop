@@ -3,6 +3,7 @@ package UI;
 
 import JDBC.bookJDBC;
 import domain.Booking;
+import java.util.ArrayList;
 
 public class bookTier {
     bookJDBC jdbc;
@@ -53,6 +54,17 @@ public class bookTier {
             return true;
         else
             return false;        
+    }
+
+   public ArrayList<Booking> retrieveBook() throws Exception{
+        ArrayList<Booking> bookarray  = new ArrayList<Booking>();
+        
+        try{
+            bookarray = jdbc.retrieveBook();
+         }catch(Exception ex){
+             throw new Exception("No Record");
+         } 
+        return bookarray;
     }
     
     
