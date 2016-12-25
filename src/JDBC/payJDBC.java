@@ -147,6 +147,37 @@ public class payJDBC {
         
     }
     
+    public ArrayList<Payment> retrievePay2()throws SQLException{
+        
+        ArrayList<Payment> payarray2  = new ArrayList<Payment>();
+                
+            String sql2 = "select * from payment ";
+       
+            stmt2 = con.prepareStatement(sql2);
+            ResultSet rs = stmt2.executeQuery();
+            
+            while(rs.next()){
+            Payment p = new Payment();
+            p.setPayID(rs.getString("payID"));
+            p.setBookID(rs.getString("bookID"));
+            p.setMemID(rs.getString("memID"));
+            p.setScheID(rs.getString("scheID"));
+            p.setScheDate(rs.getString("scheDate"));
+            p.setScheTime(rs.getInt("scheTime"));
+            p.setSeatType(rs.getString("seatType"));
+            p.setSeatBook(rs.getInt("seatBook"));
+            p.setPrice(rs.getDouble("price"));
+            p.setPayMethod(rs.getString("payMethod"));
+            p.setCardNo(rs.getString("cardNo"));
+            p.setCardPin(rs.getString("cardPin"));
+            
+            
+            payarray2.add(p);
+            }
+            
+        return payarray2;
+    }
+    
        
     
 }
