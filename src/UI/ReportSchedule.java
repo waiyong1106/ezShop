@@ -5,53 +5,21 @@
  */
 package UI;
 
-import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+
+
 /**
  *
  * @author User
  */
 public class ReportSchedule extends javax.swing.JFrame {
-    String host = "jdbc:mysql://localhost:3306/easyexpress";
-    String username = "root";
-    String password = "";
-    Statement stmt=null;
-    
-    public void connection()
- {
-    try
-    {
-    Class.forName("com.mysql.jdbc.scheJDBC");
-    }catch(Exception e)
-            {
-            System.out.println(e);
-            }
- }
-    public void connection1(){
-        try{
-        connection();
-        Connection connect = DriverManager.getConnection(host,username,password);
-        stmt = connect.createStatement();
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    
-    }
-    
-    public void fetch_Data(){
-    try{
-        connection1();
-        String sql = "select * from scheduler";
-        ResultSet rs=stmt.executeQuery(sql);
-        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-    }catch(Exception e){
-    JOptionPane.showMessageDialog(null, e);
-    }
-    }
+  
     
     
     /**
@@ -59,10 +27,40 @@ public class ReportSchedule extends javax.swing.JFrame {
      */
     public ReportSchedule() {
         initComponents();
-        fetch_Data();
+        showSche();
+        
        
     }
 
+    public void showSche(){
+    try{
+            scheTier st = new scheTier();
+            ArrayList<domain.Scheduler> schearray = st.retrieveSche();
+            DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+            model.setRowCount(0);
+                       
+                for(int i=0; i<schearray.size();i++){
+                domain.Scheduler s = schearray.get(i);
+                
+                String c1 = s.getScheID();
+                
+                String c2 = s.getScheDate();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String c3 = s.getDest();
+                String c4 = s.getDeparture();
+                String c5 = s.getBusID();
+                String c6 = s.getDriverID();
+                
+                Object [] row = {c1,c2,c3,c4,c5,c6};
+                model.addRow(row);     
+            }
+
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Fail to retrieve record");   
+        }
+    }
+    
+    
   
     
     /**
@@ -89,6 +87,12 @@ public class ReportSchedule extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
