@@ -43,7 +43,6 @@ public class ReportTransaction extends javax.swing.JFrame {
                 double c6 = b.getPrice();
                 
                 
-                
                 Object [] row = {c1,c2,c3,c4,c5,c6};
                 model.addRow(row);     
             }
