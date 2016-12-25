@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class refundJDBC {
     Statement stmt;
@@ -79,6 +80,29 @@ public class refundJDBC {
         
     }
     
+    public ArrayList<Refund> retrieveRefund()throws SQLException{
+        
+        ArrayList<Refund> refundarray  = new ArrayList<Refund>();
+                
+            String sql2 = "select * from refund";
+        
+            stmt2 = con.prepareStatement(sql2);
+            ResultSet rs = stmt2.executeQuery();
+            
+            while(rs.next()){
+            Refund r = new Refund();
+            r.setRefundID(rs.getString("refundID"));
+            r.setPayID(rs.getString("payID"));
+            r.setMemID(rs.getString("memID"));
+            r.setHp(rs.getString("Hp"));
+            r.setRprice(rs.getDouble("rprice"));
+            r.setStatus(rs.getString("status"));
+                 
+            refundarray.add(r);
+    }
+      
+    return refundarray;
     
-    
+}
+
 }
