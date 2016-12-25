@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class bookJDBC {
     Statement stmt;
@@ -78,6 +79,34 @@ public class bookJDBC {
             return false;
         
     }
+    
+    public ArrayList<Booking> retrieveBook()throws SQLException{
+        
+        ArrayList<Booking> bookarray  = new ArrayList<Booking>();
+                
+            String sql2 = "select * from booking";
+        
+            stmt2 = con.prepareStatement(sql2);
+            ResultSet rs = stmt2.executeQuery();
+            
+            while(rs.next()){
+            Booking b = new Booking();
+            b.setBookID(rs.getString("bookID"));
+            b.setMemID(rs.getString("memID"));
+            b.setScheID(rs.getString("scheID"));
+            b.setSeatType(rs.getString("seatType"));
+            b.setSeatBook(rs.getInt("seatBook"));
+            b.setPrice(rs.getDouble("price"));
+            
+                   
+            bookarray.add(b);
+            
+        
+    }
+      
+    return bookarray;
+    
+}
     
     
     
