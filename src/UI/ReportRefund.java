@@ -46,7 +46,6 @@ public class ReportRefund extends javax.swing.JFrame {
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Fail to retrieve record");   
         }
-    
     }
     
     /**
