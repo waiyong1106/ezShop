@@ -287,6 +287,7 @@ public class booking extends javax.swing.JFrame {
                 } else {
                     int num = (int)seatno.getSelectedItem();
                     double totalprice;
+                    //count price
                     if(normal.isSelected())
                         totalprice = s.getPriceN()*num;
                     else
@@ -300,6 +301,7 @@ public class booking extends javax.swing.JFrame {
     }//GEN-LAST:event_seatnoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //get member id
         String memId = tf_memID.getText();
         dispose();
         showSche ss = new showSche(memId);
@@ -310,7 +312,7 @@ public class booking extends javax.swing.JFrame {
       String memID = tf_memID.getText();
         String scheID = tf_scheID.getText();
         String seatType ;
-       
+        //determine normal or vip 
         if(normal.isSelected())
             seatType = "Normal";
         else
@@ -322,9 +324,11 @@ public class booking extends javax.swing.JFrame {
         try{
             bookTier bt = new bookTier();
             String bookId = bt.newbookID(memID,scheID,seatType,seatBook,price);
-                if (bookId==null){
+            //display fail    
+            if (bookId==null){
                     JOptionPane.showMessageDialog(this, "Fail to auto generate Book ID");
-                } else {
+            //go payment page    
+            } else {
                     JOptionPane.showMessageDialog(this, "Tranfer to Payment Page");
                     dispose();
                     payUI pay = new payUI(bookId,memID,scheID,seatType,seatBook,price);
