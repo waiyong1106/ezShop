@@ -22,6 +22,7 @@ public class refundJDBC {
         stmt= con.createStatement();            
     }
     
+    //This method is to compare the refund table database, and get the next data's id
     public String getId()throws SQLException{
         String r_id="R";
         
@@ -48,6 +49,7 @@ public class refundJDBC {
         return newId;
     }
     
+    //This method is use to get the member's phone number by using member id
     public String getHp(String memID)throws Exception{
         String hp="null";
         String sql2 = "select hp from member where memID=?";
@@ -61,6 +63,7 @@ public class refundJDBC {
         return hp;
     }
     
+    //This method is use to add in new refund data into database
     public boolean storeRefund(Refund r)throws Exception{
               String sql2 = "insert into refund(refundID,payID,memID,hp,rprice,status) values(?,?,?,?,?,?)";
               stmt2 = con.prepareStatement(sql2);
@@ -80,6 +83,7 @@ public class refundJDBC {
         
     }
     
+    //This method return the data in refund table in a ArrayList form so that it can be shown in table
     public ArrayList<Refund> retrieveRefund()throws SQLException{
         
         ArrayList<Refund> refundarray  = new ArrayList<Refund>();
