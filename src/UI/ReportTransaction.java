@@ -15,12 +15,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author User
  */
-public class ReportTransaction extends javax.swing.JFrame {
+public class ReportTransaction extends javax.swing.JFrame{
 
     /**
      * Creates new form ReportTransaction
      */
-    public ReportTransaction() {
+    public ReportTransaction(){
         initComponents();
         showTran();
     }
@@ -142,8 +142,8 @@ public class ReportTransaction extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dispose();
-        new report().setVisible(true);
+       dispose();
+       new report().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
