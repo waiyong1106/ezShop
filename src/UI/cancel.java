@@ -167,7 +167,8 @@ public class cancel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      String payID = tf_payID.getText();
+      	//get user input
+	String payID = tf_payID.getText();
         String bookID = tf_bookID.getText();
         String price = tf_price.getText();
         String scheID = tf_scheID.getText();
@@ -184,6 +185,7 @@ public class cancel extends javax.swing.JFrame {
                 } else {
                     bookTier bt = new bookTier();
                     boolean success2 = bt.deleteBook(bookID);
+		    //if not success
                     if(!success2)
                         JOptionPane.showMessageDialog(this, "Fail to cancel booking");
                     else{
@@ -191,7 +193,9 @@ public class cancel extends javax.swing.JFrame {
                         boolean success3 = st.addSeat(scheID,seatType,seatBook);
                         if(!success3)
                             JOptionPane.showMessageDialog(this, "Fail to add seat availability.");
-                        else{
+                        
+			else{
+			    //go refund page if success
                             payTier pt = new payTier();
                             boolean success4 = pt.cancelPay(refundID,payID);
                             if(!success4)
