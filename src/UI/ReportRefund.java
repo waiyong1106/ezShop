@@ -23,7 +23,7 @@ public class ReportRefund extends javax.swing.JFrame {
         showRefund();
     }
 
-    public void showRefund(){
+    public void showRefund() {
     try{
             refundTier ft = new refundTier();
             ArrayList<domain.Refund> refundarray = ft.retrieveRefund();
@@ -140,8 +140,8 @@ public class ReportRefund extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dispose();
-        new report().setVisible(true);
+         dispose();
+         new report().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
