@@ -9,10 +9,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class StaffJDBC {
+public class StaffJDBC  {
     Statement stmt;
     PreparedStatement stmt2;
     Connection con;
+    
     
     public StaffJDBC() throws SQLException{    
         String url = "jdbc:mysql://localhost:3306/easyexpress";
@@ -21,6 +22,8 @@ public class StaffJDBC {
         con = DriverManager.getConnection(url,username,password);
         stmt= con.createStatement();            
     }
+    
+    
     
     public boolean stafflog(Staff s)throws SQLException{
         String sql3 = "select * from staff where username=? AND password=?";
@@ -54,6 +57,8 @@ public class StaffJDBC {
         }
         return s;   //recovery successfully
     }
+    
+    
     
     public String getId()throws SQLException{
         String s_id="S";
@@ -163,8 +168,5 @@ public class StaffJDBC {
                   return true;
               else
                   return false;
-    }
-        
-        
-        
-    }
+    }   
+}
