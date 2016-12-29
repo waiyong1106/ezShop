@@ -5,6 +5,7 @@
  */
 package UI;
 
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -149,8 +150,8 @@ public class ReportSchedule extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dispose();
-        new report().setVisible(true);
+         dispose();
+         new report().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
