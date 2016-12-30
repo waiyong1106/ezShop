@@ -37,18 +37,19 @@ public class welcomePage extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/blue-ok-icon.png"))); // NOI18N
-        jButton1.setText("Welcome !!!");
+        jButton1.setText("Welcome !");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(479, 160, 140, 33);
+        jButton1.setBounds(130, 130, 140, 33);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/easyexpressbigger.png"))); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Trump Bus Management System");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 642, 383);
+        jLabel1.setBounds(30, 30, 360, 80);
 
         pack();
         setLocationRelativeTo(null);
