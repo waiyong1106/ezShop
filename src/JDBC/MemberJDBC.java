@@ -43,8 +43,7 @@ public class MemberJDBC {
                 
         if (!found)
             newId="M10001";
-    
-        return newId;
+        return newId;   //refactoring
     }
     
     public boolean register(Member m) throws SQLException{
@@ -133,5 +132,4 @@ public class MemberJDBC {
         else
             return false;
     }
-    
 }
