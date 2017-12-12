@@ -10,18 +10,18 @@
 
 **==================================================**
 
-[Database] - Contains of every database in the application 
+**[Database]** - Contains of every database in the application 
 (member,location,shopoperation,reviewarating) Direct insert to phpMyAdmin with Xampp
 
 
-[PHP files] - Contains of every php code we use.
+**[PHP files]** - Contains of every php code we use.
 (C:\xampp\htdocs)Copy the file to htdocs for Xampp.
 To test the php files 
 localhost/android_ezshop(fileName)/retrievelocation.php
 localhost/android_ezshop(fileName)/retrievelocation.php?format=json
 
 
-[Latest FYP] - Android Source code
+**[Latest FYP]** - Android Source code
 Thing to take note.
 e.g = "http://10.0.2.2/android_ezshop/retrieveOperation.php?format=json";
 This 10.0.2.2 IP address is for android studio emulator purpose.
