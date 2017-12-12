@@ -44,7 +44,7 @@ public class shopDetails extends AppCompatActivity {
 
         }
         data = (TextView) findViewById(R.id.tvSDShopname);
-        data3 = (TextView)findViewById(R.id.tvTestingSD);
+
         click = (Button)findViewById(R.id.btnSDConfirm);
 
                 BackgroundTask process = new BackgroundTask();

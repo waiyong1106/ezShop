@@ -128,7 +128,7 @@ public class Register extends AppCompatActivity {
             et_cpassword.setError("Please Enter Confirm Password");
             valid = false;
         }
-        if(password != cpassword){
+        if(!password.equals(cpassword)){
             et_cpassword.setError("Password Not Match");
             valid = false;
         }
