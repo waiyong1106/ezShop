@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main"
+        android:title="Create Shops"
+
+        />
+    <item
+        android:id="@+id/tracking"
+        android:title="Check nearby"
+        />
+
+    <item
+        android:id="@+id/menuLogout"
+        android:title="Logout"
+        />
+
+</menu>
